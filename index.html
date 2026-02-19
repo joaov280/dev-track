@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmação de Presença | Casamento</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Casamento Ana & João</h1>
+        <p>Confirme sua presença e nos ajude a organizar esse dia especial 💍</p>
+      </header>
+
+      <nav class="tabs" aria-label="Navegação principal">
+        <button class="tab-button active" data-tab="rsvp">Confirmar presença</button>
+        <button class="tab-button" data-tab="admin">Admin</button>
+      </nav>
+
+      <section id="rsvp" class="tab-panel active" aria-labelledby="Confirmar presença">
+        <form id="rsvpForm" class="card">
+          <h2>Formulário de confirmação</h2>
+
+          <label>
+            Nome do responsável
+            <input type="text" id="responsavel" required placeholder="Ex.: Maria Silva" />
+          </label>
+
+          <label>
+            Quantidade total de convidados
+            <input type="number" id="quantidade" min="1" required value="1" />
+          </label>
+
+          <fieldset>
+            <legend>Nomes dos convidados</legend>
+            <div id="nomesConvidados"></div>
+          </fieldset>
+
+          <label class="inline">
+            <input type="checkbox" id="temCrianca" />
+            Vai levar criança?
+          </label>
+
+          <div id="criancasArea" class="hidden">
+            <label>
+              Quantidade de crianças
+              <input type="number" id="quantidadeCriancas" min="1" value="1" />
+            </label>
+            <fieldset>
+              <legend>Dados das crianças</legend>
+              <div id="criancasLista"></div>
+            </fieldset>
+          </div>
+
+          <button type="submit">Enviar confirmação</button>
+          <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="admin" class="tab-panel" aria-labelledby="Admin">
+        <div class="card">
+          <h2>Painel administrativo</h2>
+          <div class="admin-toolbar">
+            <p>Total de confirmações: <strong id="totalConfirmacoes">0</strong></p>
+            <button id="limparTudo" class="danger">Limpar tudo</button>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Responsável</th>
+                  <th>Convidados</th>
+                  <th>Crianças</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminBody">
+                <tr>
+                  <td colspan="4">Nenhuma confirmação ainda.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
